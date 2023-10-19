@@ -3,13 +3,18 @@ from datetime import datetime
 
 def load_data(file):
     list_operation = []
-    with open(file, "r", encoding="utf-8") as f:
-        row_json = f.read()
-    list_operation = json.loads(row_json)
-    while {} in list_operation:
-        list_operation.remove({})
+    try:
+        with open(file, "r", encoding="utf-8") as f:
+            row_json = f.read()
 
-    list_operation.sort(key=lambda k: k["date"], reverse = True)
+    except FileNotFoundError:
+        return list_operation
+
+    list_operation = json.loads(row_json)
+#    while {} in list_operation:
+#        list_operation.remove({})
+
+#    list_operation.sort(key=lambda k: k["date"], reverse = True)
 
     return list_operation
 
@@ -44,7 +49,7 @@ def operation_sting(i):
 
 
 
-list_operation = load_data("operations.json")
+
 
 
 
