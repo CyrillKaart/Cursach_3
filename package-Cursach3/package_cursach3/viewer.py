@@ -11,10 +11,10 @@ def load_data(file):
         return list_operation
 
     list_operation = json.loads(row_json)
-#    while {} in list_operation:
-#        list_operation.remove({})
+    while {} in list_operation:
+        list_operation.remove({})
 
-#    list_operation.sort(key=lambda k: k["date"], reverse = True)
+    list_operation.sort(key=lambda k: k["date"], reverse = True)
 
     return list_operation
 
